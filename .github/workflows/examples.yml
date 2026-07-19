@@ -1,0 +1,58 @@
+name: examples
+
+# The two shipped examples are regression tests for the grading logic:
+# each asserts its expected VERDICT and exits non-zero if that verdict
+# changes. coinflip_smoke must keep REFUSING an information-free model;
+# the weather demo must keep CERTIFYING a forecast with real skill. A
+# change that breaks either direction fails the build.
+#
+# The weather demo runs entirely from its committed cache, so CI makes no
+# network calls and cannot be broken by upstream archive changes.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  examples:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.9", "3.11", "3.13"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install the package (must pull no third-party runtime deps)
+        run: pip install -e .
+
+      - name: Assert zero runtime dependencies
+        run: |
+          python - <<'PY'
+          import subprocess, sys
+          out = subprocess.run([sys.executable, "-m", "pip", "list",
+                                "--format=freeze"], capture_output=True,
+                               text=True).stdout.lower()
+          installed = {l.split("==")[0] for l in out.splitlines() if l.strip()}
+          allowed = {"pip", "setuptools", "wheel", "rigor-toolkit"}
+          extra = installed - allowed
+          assert not extra, f"unexpected runtime dependencies: {sorted(extra)}"
+          print("zero runtime dependencies confirmed:", sorted(installed))
+          PY
+
+      - name: Refusal case — must NOT certify a coin flip
+        run: python examples/coinflip_smoke.py
+
+      - name: Install example-only dependency
+        run: pip install -r examples/weather_forecast_skill/requirements.txt
+
+      - name: Certification case — must certify real forecast skill
+        working-directory: examples/weather_forecast_skill
+        run: python run_weather_demo.py
