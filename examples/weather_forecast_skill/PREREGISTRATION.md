@@ -30,8 +30,16 @@
 > Reason: the first run showed persistence scoring **44.3% at lead 1 —
 > below chance.** Day-over-day maximum temperature mean-reverts, so "the
 > last change continues" is anti-predictive, and its mirror image is
-> therefore the strongest trivial rule available on this data at roughly
-> 55–56%. The pre-registered set omitted it.
+> therefore the strongest trivial rule available **at 1-day lead**. The
+> pre-registered set omitted it.
+>
+> (Measured after the rerun, correcting the estimate above: anti-
+> persistence scores **52.8%** at lead 1 — narrowly the strongest rule
+> there, against always-majority's 52.5%. At leads 3, 5 and 7 it scores
+> 48.7%, 48.5% and 47.3%, *below* always-majority's ~52%, which is the
+> rule to beat at longer leads. The omission therefore mattered
+> specifically at short lead; an unqualified "strongest trivial rule"
+> would be wrong.)
 >
 > That omission is exactly the error this toolkit's Wikipedia case study
 > exists to warn about — grading against a chosen baseline while a better
@@ -149,16 +157,19 @@ binomial p < 0.01 against a coin flip.
   publish "weather forecasts don't work."
 
 **Rule 2 — skill decay.** Report `beats_all_baselines()` and the hit
-rate at each of the five horizons. The pre-registered expectation,
-recorded now so it can be wrong: skill is present at 1 and 3 days,
-marginal at 5–7, and absent by 10. **No result at horizons ≥ 3 voids
-anything** — whatever the curve does is the finding, including a flat
-one.
+rate at each of the five horizons _[four — superseded by Amendment 1]_.
+The pre-registered expectation, recorded now so it can be wrong: skill is
+present at 1 and 3 days, marginal at 5–7, and absent by 10 _[the 10-day
+prediction is now untestable — superseded by Amendment 1; it is left
+standing so the original expectation remains on the record]_. **No result
+at horizons ≥ 3 voids anything** — whatever the curve does is the
+finding, including a flat one.
 
 **Rule 3 — power honesty.** At every horizon, report the resolved
 episode count against `power_thresholds()`, and state the smallest true
 edge the sample could have detected. A "no skill" verdict at 10 days
-must be accompanied by its detection floor.
+_[at any horizon — superseded by Amendment 1]_ must be accompanied by its
+detection floor.
 
 ## Stage 0 — data integrity (abort on any failure)
 

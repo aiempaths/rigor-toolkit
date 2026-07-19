@@ -60,16 +60,27 @@ rather than smoothed away:
 
 - **Persistence scored 44.3% — below chance.** Day-over-day temperature
   mean-reverts, so "yesterday's change continues" is *anti*-predictive,
-  which makes its mirror the strongest trivial rule available. The
-  original baseline set omitted that mirror — the same trap the Wikipedia
-  case study exists to warn about, committed while pre-registering the
-  demonstration about avoiding it. Anti-persistence was added post-hoc
-  and disclosed as such. Adding a baseline can only raise the bar, and
-  the forecast still cleared it.
+  which makes its mirror the strongest trivial rule **at one-day lead**
+  (52.8%, just ahead of always-majority's 52.5%; at leads 3–7 it drops to
+  47–49% and majority becomes the rule to beat). The original baseline
+  set omitted that mirror — the same trap the Wikipedia case study exists
+  to warn about, committed while pre-registering the demonstration about
+  avoiding it. Anti-persistence was added post-hoc and disclosed as such.
+  Adding a baseline can only raise the bar, and the forecast still
+  cleared it.
 - **The decay endpoint was unreachable.** The data source retains only
   seven days of prior model runs, so the lead time at which forecast
   skill actually dies lies beyond what could be tested. The report says
   so, rather than implying skill is unlimited.
+- **That pre-registration's timing is attested, not proven.** This
+  repository's first public commit contains the pre-registration, the
+  code and the results together, so an outsider cannot verify from git
+  that the rules preceded the numbers. Treat the amendment ordering as
+  self-reported, and judge the amendments on their checkable properties
+  instead — Amendment 1 is confirmed by the data source, and Amendment 2
+  makes the test strictly harder. Future pre-registrations will be
+  committed publicly before any analysis code exists, so the timestamp
+  is the platform's rather than mine.
 
 ---
 

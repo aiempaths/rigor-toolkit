@@ -79,12 +79,41 @@ questions about distinct days, so the dedup window is zero-width.
 ## Two honest findings
 
 **Persistence scored 44.3% — below chance.** Day-over-day temperature
-mean-reverts, so its mirror is the strongest trivial rule here, and the
+mean-reverts, so its mirror is the strongest trivial rule **at one-day
+lead** (52.8%, just ahead of always-majority's 52.5%), and the
 pre-registered baseline set had left that mirror out. That is exactly the
 Wikipedia trap this toolkit was built to catch, committed while
 pre-registering the demonstration about catching it. Anti-persistence was
 added post-hoc, disclosed as Amendment 2, and the forecast still beat it.
 Adding a baseline can only raise the bar.
+
+Note the qualifier: anti-persistence leads only at day 1. At leads 3, 5
+and 7 it scores 48.7%, 48.5% and 47.3% — below always-majority's ~52%,
+which is the rule to beat at longer leads. "Strongest trivial rule"
+without that qualifier would be wrong, and the full per-lead table is in
+[RESULTS.md](RESULTS.md).
+
+**The pre-registration's timing is attested, not proven.** This is the
+weakest link in the demonstration and it is stated here rather than left
+for a reader to find. The whole force of a pre-registration is temporal:
+rules fixed *before* results are seen. But this repository's first public
+commit contains the pre-registration, the analysis code and the results
+together, so an outsider sees them arrive in the same instant. Git never
+recorded the ordering — the pre-registration and `RESULTS.md` were
+written in one working session and committed together, so no rearrangement
+of history could demonstrate it either.
+
+Take the ordering of Amendments 1 and 2 as **self-reported**. What *is*
+independently checkable: Amendment 1 is confirmed by the data source
+itself (`previous_day8` and beyond return null, so the 10-day horizon was
+genuinely unavailable, not dropped for being inconvenient), and Amendment
+2 makes the test strictly harder, which is the opposite of what a
+result-driven change would look like. Judge the amendments on those
+properties, not on trust.
+
+**Going forward, the fix is structural:** commit the locked
+pre-registration as its own public commit *before* any analysis code
+exists, so the timestamp is the platform's rather than the author's.
 
 **The decay endpoint was never reached.** The archive retains just seven
 days of prior runs, so the lead time at which forecast skill actually

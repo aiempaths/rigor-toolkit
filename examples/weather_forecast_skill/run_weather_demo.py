@@ -132,8 +132,11 @@ def make_baselines():
                 e.prediction.meta["persistence"]),
             rationale="last fully-observed change REVERSES; day-over-day "
                       "temperature is mean-reverting, so this is the "
-                      "strongest trivial rule here (added post-hoc, "
-                      "Amendment 2 — it raises the bar, never lowers it)"),
+                      "strongest trivial rule AT 1-DAY LEAD (52.8% vs "
+                      "majority's 52.5%); at leads 3-7 it falls below "
+                      "always-majority and majority becomes the rule to "
+                      "beat (added post-hoc, Amendment 2 — it raises the "
+                      "bar, never lowers it)"),
         Baseline.seasonal_naive(
             lambda e: e.prediction.meta["climatology"],
             rationale="direction of the ten-year seasonal normal into the "
