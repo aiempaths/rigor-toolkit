@@ -130,13 +130,16 @@ def make_baselines():
         Baseline.anti_persistence(
             lambda e: {"UP": "DOWN", "DOWN": "UP"}.get(
                 e.prediction.meta["persistence"]),
+            # No measured figures belong in this string: it is written
+            # verbatim into every regenerated RESULTS.md, including runs
+            # over a different --span or a future window, where numbers
+            # from the published run would be false.
             rationale="last fully-observed change REVERSES; day-over-day "
-                      "temperature is mean-reverting, so this is the "
-                      "strongest trivial rule AT 1-DAY LEAD (52.8% vs "
-                      "majority's 52.5%); at leads 3-7 it falls below "
-                      "always-majority and majority becomes the rule to "
-                      "beat (added post-hoc, Amendment 2 — it raises the "
-                      "bar, never lowers it)"),
+                      "temperature is mean-reverting, so this was narrowly "
+                      "the strongest trivial rule at 1-day lead in the "
+                      "published window (see Amendment 2); at longer leads "
+                      "always-majority is the rule to beat (added post-hoc "
+                      "— it raises the bar, never lowers it)"),
         Baseline.seasonal_naive(
             lambda e: e.prediction.meta["climatology"],
             rationale="direction of the ten-year seasonal normal into the "

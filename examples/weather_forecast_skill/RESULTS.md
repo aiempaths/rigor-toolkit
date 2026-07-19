@@ -40,7 +40,7 @@ Every other published rigor_toolkit case study is a null: the toolkit refused th
 | Rule | Correct | Rate | Rationale |
 |---|---|---|---|
 | persistence | 793/1790 | 44.3% | last fully-observed day-over-day change continues; the standard short-range null in meteorology |
-| anti-persistence | 946/1790 | 52.8% | last fully-observed change REVERSES; day-over-day temperature is mean-reverting, so this is the strongest trivial rule AT 1-DAY LEAD (52.8% vs majority's 52.5%); at leads 3-7 it falls below always-majority and majority becomes the rule to beat (added post-hoc, Amendment 2 — it raises the bar, never lowers it) |
+| anti-persistence | 946/1790 | 52.8% | last fully-observed change REVERSES; day-over-day temperature is mean-reverting, so this was narrowly the strongest trivial rule at 1-day lead in the published window (see Amendment 2); at longer leads always-majority is the rule to beat (added post-hoc — it raises the bar, never lowers it) |
 | seasonal-naive | 889/1790 | 49.7% | direction of the ten-year seasonal normal into the target date; the standard long-range null |
 | always-majority-outcome (in-sample) | 940/1790 | 52.5% | upper bound on every constant rule |
 | always-UP | 940/1790 | 52.5% | constant rule, reported for completeness |
@@ -50,7 +50,7 @@ Every other published rigor_toolkit case study is a null: the toolkit refused th
 | Rule | Correct | Rate | Rationale |
 |---|---|---|---|
 | persistence | 867/1788 | 48.5% | last fully-observed day-over-day change continues; the standard short-range null in meteorology |
-| anti-persistence | 871/1788 | 48.7% | last fully-observed change REVERSES; day-over-day temperature is mean-reverting, so this is the strongest trivial rule AT 1-DAY LEAD (52.8% vs majority's 52.5%); at leads 3-7 it falls below always-majority and majority becomes the rule to beat (added post-hoc, Amendment 2 — it raises the bar, never lowers it) |
+| anti-persistence | 871/1788 | 48.7% | last fully-observed change REVERSES; day-over-day temperature is mean-reverting, so this was narrowly the strongest trivial rule at 1-day lead in the published window (see Amendment 2); at longer leads always-majority is the rule to beat (added post-hoc — it raises the bar, never lowers it) |
 | seasonal-naive | 894/1788 | 50.0% | direction of the ten-year seasonal normal into the target date; the standard long-range null |
 | always-majority-outcome (in-sample) | 928/1788 | 51.9% | upper bound on every constant rule |
 | always-UP | 928/1788 | 51.9% | constant rule, reported for completeness |
@@ -60,7 +60,7 @@ Every other published rigor_toolkit case study is a null: the toolkit refused th
 | Rule | Correct | Rate | Rationale |
 |---|---|---|---|
 | persistence | 870/1785 | 48.7% | last fully-observed day-over-day change continues; the standard short-range null in meteorology |
-| anti-persistence | 865/1785 | 48.5% | last fully-observed change REVERSES; day-over-day temperature is mean-reverting, so this is the strongest trivial rule AT 1-DAY LEAD (52.8% vs majority's 52.5%); at leads 3-7 it falls below always-majority and majority becomes the rule to beat (added post-hoc, Amendment 2 — it raises the bar, never lowers it) |
+| anti-persistence | 865/1785 | 48.5% | last fully-observed change REVERSES; day-over-day temperature is mean-reverting, so this was narrowly the strongest trivial rule at 1-day lead in the published window (see Amendment 2); at longer leads always-majority is the rule to beat (added post-hoc — it raises the bar, never lowers it) |
 | seasonal-naive | 888/1785 | 49.7% | direction of the ten-year seasonal normal into the target date; the standard long-range null |
 | always-majority-outcome (in-sample) | 932/1785 | 52.2% | upper bound on every constant rule |
 | always-UP | 932/1785 | 52.2% | constant rule, reported for completeness |
@@ -70,7 +70,7 @@ Every other published rigor_toolkit case study is a null: the toolkit refused th
 | Rule | Correct | Rate | Rationale |
 |---|---|---|---|
 | persistence | 895/1792 | 49.9% | last fully-observed day-over-day change continues; the standard short-range null in meteorology |
-| anti-persistence | 847/1792 | 47.3% | last fully-observed change REVERSES; day-over-day temperature is mean-reverting, so this is the strongest trivial rule AT 1-DAY LEAD (52.8% vs majority's 52.5%); at leads 3-7 it falls below always-majority and majority becomes the rule to beat (added post-hoc, Amendment 2 — it raises the bar, never lowers it) |
+| anti-persistence | 847/1792 | 47.3% | last fully-observed change REVERSES; day-over-day temperature is mean-reverting, so this was narrowly the strongest trivial rule at 1-day lead in the published window (see Amendment 2); at longer leads always-majority is the rule to beat (added post-hoc — it raises the bar, never lowers it) |
 | seasonal-naive | 894/1792 | 49.9% | direction of the ten-year seasonal normal into the target date; the standard long-range null |
 | always-majority-outcome (in-sample) | 935/1792 | 52.2% | upper bound on every constant rule |
 | always-UP | 935/1792 | 52.2% | constant rule, reported for completeness |

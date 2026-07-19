@@ -11,6 +11,12 @@
 > removed. No result of any kind had been computed when this amendment
 > was made.
 >
+> As probed 2026-07-18; verifiable against the live API for as long as
+> Open-Meteo retains only seven days of prior runs. The probe script and
+> a captured response are archived in [`probes/`](probes/) so the claim
+> remains checkable offline if that retention ever changes:
+> `python probes/lead_availability_probe.py --saved`.
+>
 > **Consequence, stated honestly:** the demonstration may not reach the
 > lead time at which forecast skill actually vanishes. Temperature-
 > direction forecasts plausibly retain skill through day 7, so the

@@ -77,10 +77,13 @@ rather than smoothed away:
   code and the results together, so an outsider cannot verify from git
   that the rules preceded the numbers. Treat the amendment ordering as
   self-reported, and judge the amendments on their checkable properties
-  instead — Amendment 1 is confirmed by the data source, and Amendment 2
-  makes the test strictly harder. Future pre-registrations will be
-  committed publicly before any analysis code exists, so the timestamp
-  is the platform's rather than mine.
+  instead — Amendment 1 is confirmed by the data source itself (probed
+  2026-07-18, with the probe and its response archived so it can be
+  checked offline), and Amendment 2 could only have destroyed the
+  certification, never created it, though it was made after the model's
+  score was known and so is labeled post-hoc rather than pre-registered.
+  Future pre-registrations will be committed publicly before any analysis
+  code exists, so the timestamp is the platform's rather than mine.
 
 ---
 

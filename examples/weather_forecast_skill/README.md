@@ -104,12 +104,24 @@ written in one working session and committed together, so no rearrangement
 of history could demonstrate it either.
 
 Take the ordering of Amendments 1 and 2 as **self-reported**. What *is*
-independently checkable: Amendment 1 is confirmed by the data source
-itself (`previous_day8` and beyond return null, so the 10-day horizon was
-genuinely unavailable, not dropped for being inconvenient), and Amendment
-2 makes the test strictly harder, which is the opposite of what a
-result-driven change would look like. Judge the amendments on those
-properties, not on trust.
+independently checkable:
+
+**Amendment 1** is confirmed by the data source itself — `previous_day8`
+and beyond return null, so the 10-day horizon was genuinely unavailable
+rather than dropped for being inconvenient. Probed 2026-07-18; verifiable
+against the live API for as long as Open-Meteo retains only seven days of
+prior runs. The probe and its saved response are archived in
+[`probes/`](probes/) so the claim can be checked offline even after that
+changes.
+
+**Amendment 2** adds a baseline, and the asymmetry is the point: the
+change could not have created the result — it could only have destroyed
+it — though it was made after the model's score was known, which is why
+it is labeled post-hoc rather than pre-registered. It cannot claim to
+have been blind. It can claim that the only outcome it could have
+produced was the loss of the certification.
+
+Judge the amendments on those properties, not on trust.
 
 **Going forward, the fix is structural:** commit the locked
 pre-registration as its own public commit *before* any analysis code
