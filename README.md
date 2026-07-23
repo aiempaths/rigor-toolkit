@@ -143,6 +143,48 @@ isn't there.
 
 ---
 
+---
+
+## Trial-space accounting, effective sample size, and pre-registration (v0.2.0)
+
+Three modules extend the grader from *"did it beat the baselines"* to
+*"and was the result manufactured by an undisclosed search."*
+
+**The search you did not disclose (`multi_test`).** Run a sweep of `m`
+configurations and report only the winner, and the minimum-p order
+statistic guarantees apparent significance from noise: the winner's
+nominal p concentrates near `1/(m+1)`. `attestation_adjustment(p, m)`
+corrects for the committed trial-space size with Bonferroni and
+Benjamini–Hochberg. A deliberate, tested subtlety: for a single
+cherry-picked winner the BH q-value equals the Bonferroni bound `m·p` —
+FDR relief accrues only when the *whole evaluated family* is disclosed, so
+the math rewards disclosure and refuses to reward selective reporting.
+
+**Correlation-corrected sample size (`bootstrap`).** "Way #1" above says
+correlated predictions inflate `n`. This makes it a number.
+`analyze_episodes()` reports `N_capacity = floor(span / H)` (the calendar
+ceiling of non-overlapping holds) and a correlation-corrected `N_eff` from
+a circular block bootstrap that preserves both serial and cross-stream
+dependence. Two BTC/SOL streams that co-move do not count as twice the
+sample.
+
+**Deterministic pre-registration (`prereg`, CLI `rigor-prereg`).** Freeze
+a hypothesis before evaluation. `canonicalize()` produces a byte-stable
+canonical form (Unicode NFC, sorted keys, pure ASCII, non-finite floats
+rejected, `int`/`float` kept distinct) whose SHA-256 is the fingerprint; a
+golden-hash test freezes that form permanently. The manifest states its
+own boundary in plain terms: a commitment proves a specification *existed
+at a time* — it does not execute code, and its self-reported timestamp
+carries no weight until `commitment_id` is externally anchored.
+
+```python
+from rigor_toolkit import attestation_adjustment, analyze_episodes, spec_hash
+attestation_adjustment(0.0012, family_size=1000).clears(0.05)  # -> False
+```
+
+These modules are new in v0.2.0 and less battle-tested than the core
+grader; each ships a known-answer `selftest()` run in CI.
+
 ## Usage
 
 ```python
@@ -214,7 +256,7 @@ nothing else.
 
 ## Status and honest limits
 
-**v0.1.0.** The API is small and stable, but this has been exercised on
+**v0.2.0.** The API is small and stable, but this has been exercised on
 four domains, not hundreds. Expect rough edges at the margins.
 
 **The record is three refusals and one certification** — see Track record

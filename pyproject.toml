@@ -3,9 +3,9 @@ requires = ["setuptools>=61"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "rigor-toolkit"
-version = "0.1.0"
-description = "Honest grading for timestamped predictions: episode dedup, resolution-at-horizon, explicit named baselines, binomial power math, and one computed verdict that every consumer reads and none re-derives."
+name = "labrys"
+version = "0.2.0"
+description = "Honest, falsification-first grading for timestamped predictions: episode dedup, explicit named baselines, binomial power math, multiple-comparison (family-wise / FDR) correction, correlation-corrected effective sample size, and deterministic pre-registration commitments — one computed verdict every consumer reads and none re-derives."
 readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
@@ -20,6 +20,9 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Topic :: Scientific/Engineering :: Information Analysis",
 ]
+
+[project.scripts]
+rigor-prereg = "rigor_toolkit.prereg:main"
 
 [tool.setuptools]
 packages = ["rigor_toolkit"]

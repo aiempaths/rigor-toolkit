@@ -41,10 +41,20 @@ jobs:
                                 "--format=freeze"], capture_output=True,
                                text=True).stdout.lower()
           installed = {l.split("==")[0] for l in out.splitlines() if l.strip()}
-          allowed = {"pip", "setuptools", "wheel", "rigor-toolkit"}
+          allowed = {"pip", "setuptools", "wheel", "labrys"}
           extra = installed - allowed
           assert not extra, f"unexpected runtime dependencies: {sorted(extra)}"
           print("zero runtime dependencies confirmed:", sorted(installed))
+          PY
+
+      - name: Module self-tests (multi_test, bootstrap, prereg)
+        run: |
+          python - <<'PY'
+          from rigor_toolkit.multi_test import selftest as a
+          from rigor_toolkit.bootstrap import selftest as b
+          from rigor_toolkit.prereg import selftest as c
+          print("self-tests passed:",
+                "multi_test", len(a()), "bootstrap", len(b()), "prereg", len(c()))
           PY
 
       - name: Refusal case — must NOT certify a coin flip

@@ -25,8 +25,14 @@ from .narrator import AUDITOR_PROMPT, LLMNarrator, render_plain, stamp
 from .power import (binom_p_one_sided, min_perfect_record, n_needed,
                     power_thresholds)
 from .verdict import Verdict, compute_verdict
+from .multi_test import (MultiTestResult, attestation_adjustment,
+                         benjamini_hochberg, bonferroni)
+from .bootstrap import (BootstrapResult, analyze_episodes, block_bootstrap,
+                        episode_outcomes)
+from .prereg import (BOUNDARY, build_manifest, canonicalize, spec_hash,
+                     verify_manifest, verify_spec)
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
 
 __all__ = [
     "Prediction", "Episode", "Outcome", "UNRESOLVED",
@@ -37,5 +43,14 @@ __all__ = [
     "Verdict", "compute_verdict",
     "Evaluator", "resolve",
     "render_plain", "LLMNarrator", "stamp", "AUDITOR_PROMPT",
+    # multiple-comparison correction over a pre-registration family
+    "bonferroni", "benjamini_hochberg", "attestation_adjustment",
+    "MultiTestResult",
+    # correlation-corrected effective sample size
+    "block_bootstrap", "analyze_episodes", "episode_outcomes",
+    "BootstrapResult",
+    # deterministic pre-registration commitments
+    "canonicalize", "spec_hash", "build_manifest", "verify_spec",
+    "verify_manifest", "BOUNDARY",
     "__version__",
 ]
